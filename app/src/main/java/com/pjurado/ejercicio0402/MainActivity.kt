@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     companion object{
         var FRAGMENT: Int = 0
-        lateinit var CONTACTO: Contacto
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +21,6 @@ class MainActivity : AppCompatActivity() {
             Configuration.ORIENTATION_PORTRAIT -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, PrimerFragment())
-                    .addToBackStack(null)
                     .commit()
                     FRAGMENT = 0
             }
@@ -32,14 +30,12 @@ class MainActivity : AppCompatActivity() {
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.container, PrimerFragment())
                             .replace(R.id.detalle, BlankFragment())
-                            .addToBackStack(null)
                             .commit()
                     }
                     1 ->{
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.container, PrimerFragment())
                             .replace(R.id.detalle, DetailFragment())
-                            .addToBackStack(null)
                             .commit()
                     }
                 }
@@ -62,14 +58,10 @@ class MainActivity : AppCompatActivity() {
                     .replace(R.id.container, fragment)
                     .addToBackStack(null)
                     .commit()
-
-                FRAGMENT = 1
-                CONTACTO = contacto
             }
             Configuration.ORIENTATION_LANDSCAPE -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.detalle, fragment)
-                    .addToBackStack(null)
                     .commit()
             }
 
