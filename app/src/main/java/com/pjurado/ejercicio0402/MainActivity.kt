@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             Configuration.ORIENTATION_PORTRAIT -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.container, PrimerFragment())
+                    .addToBackStack(null)
                     .commit()
                     FRAGMENT = 0
             }
@@ -30,13 +31,15 @@ class MainActivity : AppCompatActivity() {
                     0 ->{
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.container, PrimerFragment())
-                            .replace(R.id.detalle,BlankFragment())
+                            .replace(R.id.detalle, BlankFragment())
+                            .addToBackStack(null)
                             .commit()
                     }
                     1 ->{
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.container, PrimerFragment())
                             .replace(R.id.detalle, DetailFragment())
+                            .addToBackStack(null)
                             .commit()
                     }
                 }
@@ -66,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             Configuration.ORIENTATION_LANDSCAPE -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.detalle, fragment)
+                    .addToBackStack(null)
                     .commit()
             }
 
